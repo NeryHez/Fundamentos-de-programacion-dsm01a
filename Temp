@@ -1,0 +1,5 @@
+def validar_temperatura(temperatura):
+    if temperatura > 0 and temperatura < 100:
+        print(f"{temperatura}°C: El agua está en estado LÍQUIDO")
+    else:
+        print(f"{temperatura}°C: El agua NO está en estado LÍQUIDO")
