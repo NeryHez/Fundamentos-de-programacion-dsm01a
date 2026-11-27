@@ -1,0 +1,122 @@
+import random
+
+player1_name = ""
+player1_vida = 10
+player1_ataque = 3
+player1_defensa = 2
+player2_name = ""
+player2_vida = 10
+player2_ataque = 3
+player2_defensa = 2
+
+def calc_damage(ataque, defensa):
+    damage = ataque - defensa
+    if damage <= 0:
+        damage = 1
+    return damage
+
+def roll_dice():
+    return random.randint(1, 6)
+
+# Mostrar estadisticas del jugador
+def print_playe_status(name, life, attack, defense):
+    print("\n--- Estadisticas de", name, "---")
+
+    vida_barra = max(0, min(10, life // 10))
+    print("Vida:    " + "★" * vida_barra + "°" * (10 - vida_barra),
+          "(" + str(max(0, life)) + "/100)")
+
+    ataque_barra = max(0, min(10, attack))
+    print("Ataque:  " + "⚔" * ataque_barra + "°" * (10 - ataque_barra),
+          "(" + str(attack) + "/10)")
+
+    defensa_barra = max(0, min(10, defense))
+    print("Defensa: " + "◆" * defensa_barra + "°" * (10 - defensa_barra),
+          "(" + str(defense) + "/10)")
+
+print("God of Figth")
+
+player1_name = input("Player 1 ingrese su apodo: ")
+player2_name = input("Player 2 ingrese su apodo: ")
+
+# Estadisticas iniciales
+print_playe_status(player1_name, player1_vida, player1_ataque, player1_defensa)
+print_playe_status(player2_name, player2_vida, player2_ataque, player2_defensa)
+
+# Lanzamiento de dados
+print("\n--- Lanzamiento de dados ---")
+
+roll_player1 = roll_dice()
+print(player1_name, "ha sacado un", roll_player1)
+
+roll_player2 = roll_dice()
+print(player2_name, "ha sacado un", roll_player2)
+
+while roll_player1 == roll_player2:
+    print("¡Empate! Se vuelven a lanzar los dados.")
+
+    roll_player1 = roll_dice()
+    print(player1_name, "ha sacado un", roll_player1)
+
+    roll_player2 = roll_dice()
+    print(player2_name, "ha sacado un", roll_player2)
+
+if roll_player1 > roll_player2:
+    print(player1_name, "ha ganado, inicia primero")
+    turno = 1
+else:
+    print(player2_name, "ha ganado, inicia primero")
+    turno = 2
+
+# Ciclo de batalla
+while player1_vida > 0 and player2_vida > 0:
+
+    print_playe_status(player1_name, player1_vida, player1_ataque, player1_defensa)
+    print_playe_status(player2_name, player2_vida, player2_ataque, player2_defensa)
+
+    if turno == 1:
+        nombre = player1_name
+        accion = input("\n" + nombre + ": ¿Atacar o curarse? (atacar/curar): ")
+
+        if accion.lower() == "atacar":
+            damage = calc_damage(player1_ataque, player2_defensa)
+            player2_vida -= damage
+            print(nombre, "ha causado", damage, "de daño a", player2_name)
+
+        elif accion.lower() == "curar":
+            player1_vida = min(player1_vida + 20, 100)
+            print(nombre, "ha recuperado 20 puntos de vida")
+
+        else:
+            print("Accion no valida, pierdes el turno")
+
+        turno = 2
+
+    else:
+        nombre = player2_name
+        accion = input("\n" + nombre + ": ¿Atacar o curarse? (atacar/curar): ")
+
+        if accion.lower() == "atacar":
+            damage = calc_damage(player2_ataque, player1_defensa)
+            player1_vida -= damage
+            print(nombre, "ha causado", damage, "de daño a", player1_name)
+
+        elif accion.lower() == "curar":
+            player2_vida = min(player2_vida + 20, 100)
+            print(nombre, "ha recuperado 20 puntos de vida")
+
+        else:
+            print("Accion no valida, pierdes el turno")
+
+        turno = 1
+
+# Final de la batalla
+print("\n--- ¡Fin de la batalla! ---")
+
+print_playe_status(player1_name, player1_vida, player1_ataque, player1_defensa)
+print_playe_status(player2_name, player2_vida, player2_ataque, player2_defensa)
+
+if player1_vida <= 0:
+    print("\n¡", player2_name, "ha ganado la batalla!")
+else:
+    print("\n¡", player1_name, "ha ganado la batalla!")

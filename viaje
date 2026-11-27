@@ -1,0 +1,88 @@
+
+# Programa para calcular el gasto de un viaje
+
+# Precio fijo del peaje
+PRECIO_PEAJE = 80.00
+
+
+def solicitar_datos():
+    """
+    Solicita al usuario los datos necesarios para calcular el viaje.
+    """
+
+    print("===== CALCULADORA DE GASTOS DE VIAJE =====")
+
+    # Solicitar nombre del vehículo
+    vehiculo = input("¿Qué vehículo utilizarás?: ")
+
+    # Solicitar rendimiento del vehículo
+    rendimiento = float(input("¿Cuántos kilómetros por litro rinde? (Ej. 14.3): "))
+
+    # Solicitar distancia del viaje
+    distancia = float(input("¿Cuántos kilómetros recorrerás?: "))
+
+    # Solicitar precio de la gasolina
+    precio_gasolina = float(input("¿Cuál es el precio por litro de gasolina?: "))
+
+    return vehiculo, rendimiento, distancia, precio_gasolina
+
+
+def calcular_gastos(rendimiento, distancia, precio_gasolina):
+    """
+    Calcula los litros necesarios y el costo de gasolina.
+    """
+
+    litros_necesarios = distancia / rendimiento
+
+    gasto_gasolina = litros_necesarios * precio_gasolina
+
+    gasto_total = gasto_gasolina + PRECIO_PEAJE
+
+    return litros_necesarios, gasto_gasolina, gasto_total
+
+
+def mostrar_resultados(vehiculo, distancia, litros, gasolina, total):
+    """
+    Muestra los resultados del cálculo de manera organizada.
+    """
+
+    print("\n===== RESULTADOS DEL VIAJE =====")
+
+    print(f"Vehículo: {vehiculo}")
+    print(f"Distancia del viaje: {distancia:.2f} km")
+    print(f"Gasolina necesaria: {litros:.2f} litros")
+    print(f"Gasto en gasolina: ${gasolina:.2f}")
+    print(f"Gasto en peaje: ${PRECIO_PEAJE:.2f}")
+
+    print("-------------------------------")
+    print(f"GASTO TOTAL DEL VIAJE: ${total:.2f}")
+    print("===============================")
+
+
+def main():
+    """
+    Función principal que ejecuta el programa.
+    """
+
+    # Obtener los datos del usuario
+    vehiculo, rendimiento, distancia, precio_gasolina = solicitar_datos()
+
+    # Validar que los datos sean positivos
+    if rendimiento <= 0 or distancia < 0 or precio_gasolina < 0:
+        print("\nError: los valores deben ser positivos.")
+        return
+
+    # Realizar los cálculos
+    litros, gasolina, total = calcular_gastos(
+        rendimiento, distancia, precio_gasolina
+    )
+
+    # Mostrar los resultados
+    mostrar_resultados(
+        vehiculo, distancia, litros, gasolina, total
+    )
+
+
+# Ejecutar el programa
+if __name__ == "__main__":
+    main()

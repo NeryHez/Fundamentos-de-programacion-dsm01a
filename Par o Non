@@ -1,0 +1,5 @@
+def validar_numero(numero):
+    if numero % 2 == 0:
+        print(f"{numero} es un número PAR")
+    else:
+        print(f"{numero} es un número NON")

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Autobiografía</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:#111;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+#videoFondo{
+    position:fixed;
+    right:0;
+    bottom:0;
+    min-width:100%;
+    min-height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.capa{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+    z-index:-1;
+}
+
+header{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.seccion{
+    background:rgba(0,0,0,0.72);
+    border-radius:25px;
+    padding:30px;
+    margin-top:25px;
+    box-shadow:0px 0px 20px rgba(0,0,0,0.5);
+}
+
+img{
+    width:100%;
+    border-radius:18px;
+    transition:0.5s;
+}
+
+img:hover{
+    transform:scale(1.03);
+}
+
+audio, video{
+    width:100%;
+    margin-top:15px;
+    border-radius:12px;
+}
+
+.autobio{
+    text-align:justify;
+    line-height:1.9;
+    font-size:18px;
+}
+
+h1, h2{
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+.espacio{
+    margin-top:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<video autoplay muted loop id="videoFondo">
+    <source src="Tails Loop.mp4" type="video/mp4">
+</video>
+
+<div class="capa"></div>
+
+<div class="container">
+
+    <header>
+
+        <h1 class="display-3">Mi Historia</h1>
+
+        <p class="lead">
+            Extras Menu - Sonic Mega Collection OST
+        </p>
+
+        <audio controls>
+            <source src="Sonic Menu Music.mp4" type="audio/mp3">
+        </audio>
+
+    </header>
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-3 col-md-12">
+
+            <div class="seccion">
+                <img src="Tails mimido.jpeg">
+            </div>
+
+            <div class="seccion">
+                <img src="Sonic Relax.jpeg">
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+
+            <div class="seccion autobio">
+
+                <h2 class="text-center mb-4">
+                    AUTOBIOGRAFÍA
+                </h2>
+
+                <p>
+                    Mi nombre es Neri Antonio Hernandez Escamilla. Buenos días, buenas tardes o buenas noches, dependiendo del momento en que estés leyendo esto. Actualmente tengo 18 años, vivo en México en el estado de Monterrey en el municipio de Garcia y nací el 10 de febrero de 2008.
+                </p>
+
+                <p>
+                    Desde pequeño siempre sentí una gran fascinación por los videojuegos. Mis primeras consolas fueron la PlayStation 3 y la GameCube, donde pasé muchas horas jugando títulos como SmackDown vs Raw 2008, Super Mario Sunshine y Far Cry 2. Con el tiempo fui descubriendo más sagas que se volvieron muy importantes para mí, como Sonic, Mario, Zelda, Kirby, God of War, Silent Hill y Left 4 Dead 2, entre muchas otras.
+                </p>
+
+                <p>
+                    Además de los videojuegos, otra de mis grandes aficiones es escuchar música. Me gustan prácticamente todos los géneros, ya que considero que cada canción tiene algo especial que transmitir. Algunas de mis canciones favoritas son Igual que Ayer, Broken Dreams, Never Forget, Rollin, Born To Win, La Muralla Verde, Babydoll y Desvelado.
+                </p>
+
+                <p>
+                    Mi vida nunca ha sido algo fuera de lo común; durante muchos años seguí una rutina bastante repetitiva: despertar, ir a la escuela, hacer tarea y dormir. Aun así, cada etapa me ha dejado aprendizajes importantes. Siempre se me ha dificultado interactuar con otras personas, ya que soy alguien tímido, reservado y en ocasiones inseguro al momento de convivir.
+                </p>
+
+                <p>
+                    Actualmente, mi grupo de amigos más cercano no está conmigo en persona, sino que son amistades que conocí en línea. Tengo grandes amigos de lugares como Veracruz, Perú, Colombia y España. Me preocupo mucho por ellos y siempre intento escucharlos y apoyarlos cuando tienen algún problema, incluso a veces poniendo sus necesidades antes que las mías.
+                </p>
+
+                <p>
+                    Gran parte de mi tiempo la paso hablando o jugando con ellos, y valoro mucho su amistad. Por ahora no tengo completamente definido qué quiero hacer en el futuro. De momento prefiero seguir avanzando y dejar que la vida me lleve por el camino correcto, confiando en que con el tiempo descubriré qué es lo que realmente quiero lograr.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-12">
+
+            <div class="seccion">
+                <img src="Tails Noche.jpeg">
+            </div>
+
+            <div class="seccion">
+                <img src="SonicLibro.jpeg">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>Hecho por Neri Antonio</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
